@@ -17,7 +17,8 @@ import Trends from '@/components/Trends/index.vue'
 export default {
   name :'Home',
   components: {
-    Sidebar
+    Sidebar,
+    Trends
   }
 }
 </script>
