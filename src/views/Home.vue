@@ -50,7 +50,7 @@ export default {
     .trends-container{
       width: 80%;
       height: 100%;
-      background-color: blueviolet;
+      // background-color: blueviolet;
     }
 
   }

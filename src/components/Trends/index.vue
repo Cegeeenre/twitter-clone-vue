@@ -1,26 +1,27 @@
 <template>
-    <div class="container">
-        <SearchBar />
-        <div class="trends">
-            <h1 class="title">Trends for you</h1>
-            <TrendsItem title="Nekfeu" category="Music" />
+    <aside>
+        <div class="container">
+            <SearchBar />
+            <TrendsContainer />
         </div>
-    </div>
+    </aside>
 </template>
 <script>
 import SearchBar from './SearchBar.vue'
-import TrendsItem from './TrendsItem.vue'
+import TrendsContainer from './TrendsContainer.vue';
 export default {
     name: 'Trends',
     components: {
         SearchBar,
-        TrendsItem
+        TrendsContainer
     }
 }
 </script>
 <style lang="scss">
-    .container{
-        background-color: aquamarine;
-        width: 70%;
+    aside{
+        // background-color: aquamarine;
+        width: 80%;
+        height: 100%;
+        margin-left: 1rem;
     }
 </style>
