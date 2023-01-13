@@ -77,7 +77,7 @@ export default {
             }
             .tweet-button{
                 // use the color from another file
-                background-color: #1d9bf0;
+                background-color: rgb(239 241 241);
                 border-radius: 10rem;
                 padding-left: 5rem;
                 padding-right: 5rem;

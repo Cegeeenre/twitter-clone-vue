@@ -9,7 +9,7 @@
                 <h1>{{title}}</h1>
             </div>
             <div class="trends-items-nbTweets">
-                <h2>{{ nbTweets }} tweets</h2>
+                <h2>{{ nbTweets }} Tweets</h2>
             </div>
         </div>
     </div>
@@ -46,6 +46,7 @@ export default {
         width: calc(100% - 2rem);
         height: 100%;
         padding: 1rem;
+        transition: all 0.2s ease-in-out;
         &:hover{
             background-color: rgb(239 241 241);
             cursor: pointer;
