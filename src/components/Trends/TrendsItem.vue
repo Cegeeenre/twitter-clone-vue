@@ -15,7 +15,7 @@
     </div>
 </template>
 <script>
-import Lilpoints from '../BaseIcon/lilpoints.vue';
+import Lilpoints from '../BaseIcon/icons/lilpoints.vue';
 export default {
     name: 'TrendsItem',
     components: {

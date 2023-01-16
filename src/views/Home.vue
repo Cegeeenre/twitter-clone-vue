@@ -4,7 +4,7 @@
       <Sidebar />
     </div>
     <div class="flow-container">
-      tweet
+      <Main />
     </div>
     <div class="trends-container">
       <Trends />
@@ -14,11 +14,13 @@
 <script>
 import Sidebar from '@/components/Sidebar/index.vue'
 import Trends from '@/components/Trends/index.vue'
+import Main from '@/components/Main/index.vue'
 export default {
   name :'Home',
   components: {
     Sidebar,
-    Trends
+    Trends,
+    Main
   }
 }
 </script>
@@ -41,11 +43,8 @@ export default {
     .flow-container{
       width: 100%;
       height: 100%;
-      background-color: blue;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
+      // background-color: rgb(222, 222, 252);
+      border: 0.1px solid rgb(231 231 232);
     }
     .trends-container{
       width: 80%;

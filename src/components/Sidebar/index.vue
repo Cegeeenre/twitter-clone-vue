@@ -62,7 +62,6 @@ export default {
 </script>
 <style lang="scss">
     aside{
-        width: 60%;
         height: 100%;
         .sidebar-container{
             margin-top: 2rem;
