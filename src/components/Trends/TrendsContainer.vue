@@ -21,15 +21,16 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '@/assets/theme/colors.scss';
     .trends{
-        background-color: #f7f9f9;
+        background-color: $color-light-grey;
         border-radius: 1rem;
         margin-top: 2rem;
         padding-top: 0.5rem;
         .title{
             font-size: 1.1rem;
             font-weight: 600;
-            color: black;
+            color: $color-black;
             margin-left: 1rem;
             margin-bottom: 1rem;
         }
@@ -45,10 +46,10 @@ export default {
             border-bottom-left-radius: 1rem;
             border-bottom-right-radius: 1rem;
             padding: 1rem;
-            color: #1da1f2;
+            color: $tweet-action-blue;
             &:hover{
                 cursor: pointer;
-                background-color: rgb(239 241 241);
+                background-color: rgb(230 236 237);
             }
         }
     }

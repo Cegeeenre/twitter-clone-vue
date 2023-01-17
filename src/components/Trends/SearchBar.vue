@@ -33,6 +33,7 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import '@/assets/theme/colors.scss';
     .search-bar{
         display: flex;
         justify-content: flex-start;
@@ -42,10 +43,10 @@ export default {
         padding-left: 1rem;
         height: 50px;
         border-radius: 7rem;
-        background-color: rgb(239 243 244);
-        border: 1.5px solid rgb(255, 255, 255);
+        background-color: $color-light-grey;
+        border: 1.5px solid $color-light-grey;
         &:focus-within{
-            border: 1.5px solid rgb(29 161 242);
+            border: $light-blue-border;
         }
         .box{
             display: flex;
@@ -56,13 +57,13 @@ export default {
             .search-icon{
                 width: 8%;
                 margin-top: 6px;
-                fill: #536471;
+                fill: $color-grey;
             }
             input{
                 border : none;
                 width: 100%;
-                background-color: rgb(239 243 244);
-                color: black;
+                background-color: $color-light-grey;
+                color: $color-black;
                 &:focus{
                     outline: none;
                 }
@@ -75,14 +76,16 @@ export default {
 
             width: 7%;
             height: fit-content;
-            fill: #536471;
-            background-color: #1DA1F2;
-            padding: 0.3rem;
+            fill: $color-grey;
+            background-color: $tweet-action-blue;
             border-radius: 50%;
-            fill: white;
+            fill: $color-white;
+            svg{
+                margin: 0.3rem;
+            }
             &:hover{
                 cursor: pointer;
-                background-color: #1290df;
+                background-color: $tweet-action-blue-hover;
             }
         }
     }

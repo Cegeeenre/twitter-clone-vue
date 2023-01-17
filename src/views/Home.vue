@@ -25,6 +25,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '@/assets/theme/colors.scss';
   .home-container{
     width: 100%;
     display: flex;
@@ -44,7 +45,7 @@ export default {
       width: 100%;
       height: 100%;
       // background-color: rgb(222, 222, 252);
-      border: 0.1px solid rgb(231 231 232);
+      border: $light-grey-border;
     }
     .trends-container{
       width: 80%;

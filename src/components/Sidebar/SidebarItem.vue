@@ -74,6 +74,7 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import '@/assets/theme/colors.scss';
     .sidebar-item{
         .item{
             display: flex;
@@ -81,7 +82,7 @@ export default {
             font-size: 1.2rem;
             margin: 0.9rem;
             margin-left: 0;
-            background-color: white;
+            background-color: $color-white;
             border-radius: 1.5rem;
             padding-top: 0.7rem;
             padding-bottom: 0.7rem;
@@ -91,7 +92,7 @@ export default {
             transition: all 0.3s ease-in-out;
             cursor: pointer;
             &:hover{
-                background-color: rgb(180, 180, 180);
+                background-color: $color-light-grey-hover;
             }
             > .sidebar-item-logo{
                 width: 1.5rem;

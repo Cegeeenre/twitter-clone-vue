@@ -64,6 +64,7 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import '@/assets/theme/colors.scss';
     .addTweet-container{
         display: flex;
         flex-direction: row;

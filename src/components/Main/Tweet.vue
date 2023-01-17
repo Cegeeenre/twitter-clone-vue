@@ -73,6 +73,7 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import '@/assets/theme/colors.scss';
     .tweet {
         display: flex;
         flex-direction: row;
@@ -80,7 +81,7 @@ export default {
         align-items: flex-start;
         width: calc(100% - 2rem);
         padding: 1rem;
-        border-bottom: 0.1px solid rgb(231 231 232);
+        border-bottom: $light-grey-border;
         .tweet-icon{
             width: 10%;
             height: calc(100% - 1rem);
@@ -88,7 +89,7 @@ export default {
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            fill: grey;
+            fill: $color-grey;
             padding-right: 0.8rem;
         }
         
@@ -117,11 +118,11 @@ export default {
                     height: 1rem;
                     padding: 0.3rem;
                     border-radius: 50%;
-                    fill: #536471;
+                    fill: $color-grey;
                     transition: all 0.2s ease-in-out;
                     &:hover{
-                        background-color: rgb(218 232 240);
-                        fill: rgb(66 170 240);
+                        background-color: $action-vlight-blue;
+                        fill: $tweet-action-blue;
                         cursor: pointer;
                     }
                 }
@@ -144,11 +145,11 @@ export default {
                         height: 1rem;
                         padding: 0.3rem;
                         border-radius: 50%;
-                        fill: #536471;
+                        fill: $color-grey;
                         transition: all 0.2s ease-in-out;
                         &:hover{
-                            background-color: rgb(218 232 240);
-                            fill: rgb(66 170 240);
+                            background-color: $action-vlight-blue;
+                        fill: $tweet-action-blue;
                             cursor: pointer;
                         }
                     }
@@ -160,7 +161,7 @@ export default {
                         span{
                             padding-left: 0.3rem;
                             font-size: 0.8rem;
-                            color: #536471;
+                            color: $color-grey;
                         }
                     }
                 }

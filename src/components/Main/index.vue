@@ -49,15 +49,15 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import '@/assets/theme/colors.scss';
     .main{
         width: 100%;
         .header{
             width: 100%;
             height: 10%;
-            // background-color: rgb(255, 255, 255);
             .title{
                 padding-left: 2rem;
-                color: black;
+                color: $color-black;
             }
             .content{
                 height : 50px;
@@ -65,7 +65,7 @@ export default {
                 flex-direction: row;
                 justify-content: space-around;
                 align-items: center;
-                border-bottom: 0.1px solid rgb(231 231 232);
+                border-bottom: $light-grey-border;
                 span{
                     height: 100%;
                     display: flex;
@@ -73,7 +73,7 @@ export default {
                     justify-content: center;
                     align-items: center;
                     border-radius: 0.5;
-                    color: rgb(141, 141, 141);
+                    color: $color-grey;
                     font-weight: 600;
                 }
                 .button{
@@ -86,20 +86,18 @@ export default {
                     cursor: pointer;
                     transition: all 0.3s ease-in-out;
                     &:hover{
-                        background-color: rgb(231 231 232);
+                        background-color: $color-light-grey-hover;
                     }
                     &.active > span{
-                        border-bottom: 2px solid #1a8be0;
-                        color: black;
+                        border-bottom: 2px solid $tweet-action-blue;
+                        color: $color-black;
                     }
                     &.inactive > span{
                         border-bottom: none;
-                        color: rgb(141, 141, 141);
+                        color: $color-grey;
                     }
                 }
             }
-        }
-        .tweet{
         }
     }
 </style>

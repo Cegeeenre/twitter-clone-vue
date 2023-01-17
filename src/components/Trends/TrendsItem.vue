@@ -38,6 +38,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '@/assets/theme/colors.scss';
     .trends-item{
         display: flex;
         flex-direction: column;
@@ -48,7 +49,7 @@ export default {
         padding: 1rem;
         transition: all 0.2s ease-in-out;
         &:hover{
-            background-color: rgb(239 241 241);
+            background-color: $color-light-grey-hover;
             cursor: pointer;
         }
         .infos{
@@ -56,13 +57,13 @@ export default {
             h2{
                 font-size: 0.8rem;
                 font-weight: 500;
-                color: #536471;
+                color: $color-grey;
                 margin: 0;
             }
             h1{
                 font-size: 0.9rem;
                 font-weight: 600;
-                color: black;
+                color: $color-black;
                 margin: 0;
             }
             .trends-item-category{
@@ -76,11 +77,11 @@ export default {
                     height: 1rem;
                     padding: 0.3rem;
                     border-radius: 50%;
-                    fill: #536471;
+                    fill: $color-grey;
                     transition: all 0.2s ease-in-out;
                     &:hover{
-                        background-color: rgb(218 232 240);
-                        fill: rgb(66 170 240);
+                        background-color: $action-vlight-blue;
+                        fill: $tweet-action-blue;
                         cursor: pointer;
                     }
                 }
