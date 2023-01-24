@@ -39,7 +39,7 @@ export default {
         randNumbers() {
             return Math.floor(Math.random() * 1000)
         },
-        AddTweet() {
+        AddTweetStore() {
             let newTweet = {
                 id: this.$store.state.tweets.length + 1,
                 text: this.tweet,
@@ -56,6 +56,29 @@ export default {
             this.$store.commit('addTweet', newTweet)
             this.$emit('updateTweet')
             this.defaultTweet()
+        },
+        AddTweet() {
+            if(this.tweet.length > 0) {
+                console.log(this.tweet)
+                this.axios
+                    .post('http://localhost:3000/tweets', 
+                    {
+                        text : this.tweet,
+                        autor : 'gerard',
+                        date : this.generateDateToday(),
+                    },
+                    {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        console.log(response)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
         },
         defaultTweet() {
             this.tweet = ''
