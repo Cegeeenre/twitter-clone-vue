@@ -3,6 +3,11 @@ import { createStore } from 'vuex'
 import './style.css'
 import App from './App.vue'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+
+
 const store = createStore({
     state: {
         // tableau de tweets (id, text, date, user)
@@ -38,4 +43,5 @@ const app = createApp(App)
 
 // app.use(router)
 app.use(store)
+app.use(VueAxios, axios)
 app.mount('#app')

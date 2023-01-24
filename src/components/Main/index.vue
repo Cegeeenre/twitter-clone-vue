@@ -39,11 +39,23 @@ export default {
         }
     },
     created() {
-        this.tweets = this.$store.state.tweets
+    },
+    mounted () {
+        this.axios
+            .get('http://localhost:3000/tweets')
+            .then(response => {
+                this.tweets = response.data
+                console.log(this.tweets)
+            })
     },
     methods: {
         updateTweet() {
-            this.tweets = this.$store.state.tweets
+            this.axios
+            .get('http://localhost:3000/tweets')
+            .then(response => {
+                this.tweets = response.data
+                console.log(this.tweets)
+            })
         }
     }
 }
