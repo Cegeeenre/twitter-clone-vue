@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <Home />
+  <router-view />
 </template>
 
 <style lang="scss">

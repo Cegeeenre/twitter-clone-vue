@@ -29,31 +29,31 @@ export default {
                 },
                 {
                     name: 'Explore',
-                    link: '/explore'
+                    link: '/'
                 },
                 {
                     name: 'Notifications',
-                    link: '/notifications'
+                    link: '/'
                 },
                 {
                     name: 'Messages',
-                    link: '/messages'
+                    link: '/'
                 },
                 {
                     name: 'Bookmarks',
-                    link: '/bookmarks'
+                    link: '/'
                 },
                 {
                     name: 'Lists',
-                    link: '/lists'
+                    link: '/'
                 },
                 {
                     name: 'Profile',
-                    link: '/profile'
+                    link: '/'
                 },
                 {
                     name: 'More',
-                    link: '/more'
+                    link: '/'
                 }
             ]
         }
