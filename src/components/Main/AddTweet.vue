@@ -32,7 +32,6 @@ export default {
             let day = date.getDate()
             let month = date.getMonth() + 1
             let year = date.getFullYear()
-            let minutes = date.getMinutes()
             return `${day}/${month}/${year}` 
         },
         generateHourToday () {

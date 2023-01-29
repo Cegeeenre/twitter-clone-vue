@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import router from '../../router'
 export default {
     name: "Connection",
     data () {
@@ -25,6 +26,7 @@ export default {
             .then(response => {
                 this.user = response.data
                 console.log(this.user)
+                router.push({ name: 'Home' })
             })
             .catch(error => {
                 console.log(error)

@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="tweet-content-text">
-                <span>{{ tweet.text }}</span>
+                <span>{{ tweet.message }}</span>
             </div>
             <div class="tweet-content-footer">
                 <div class="tweet-content-footer-icons">
