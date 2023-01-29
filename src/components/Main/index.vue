@@ -35,7 +35,7 @@ export default {
     data () {
         return {
             active: 'foryou',
-            tweets: []
+            tweets: [],
         }
     },
     created() {

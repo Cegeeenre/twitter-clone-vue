@@ -32,9 +32,18 @@ export default {
             let day = date.getDate()
             let month = date.getMonth() + 1
             let year = date.getFullYear()
-            let hours = date.getHours()
             let minutes = date.getMinutes()
-            return `${day}/${month}/${year}, ${hours}:${minutes}`
+            return `${day}/${month}/${year}` 
+        },
+        generateHourToday () {
+            let date = new Date()
+            let hours = date.getHours()
+            return `${hours}`
+        },
+        generateMinuteToday () {
+            let date = new Date()
+            let minutes = date.getMinutes()
+            return `${minutes}`
         },
         randNumbers() {
             return Math.floor(Math.random() * 1000)
@@ -66,6 +75,8 @@ export default {
                         text : this.tweet,
                         autor : 'gerard',
                         date : this.generateDateToday(),
+                        hour : this.generateHourToday(),
+                        minute : this.generateMinuteToday(),
                     },
                     {
                         headers: {
@@ -74,6 +85,8 @@ export default {
                     })
                     .then(response => {
                         console.log(response)
+                        this.$emit('updateTweet')
+                        this.defaultTweet()
                     })
                     .catch(error => {
                         console.log(error)
