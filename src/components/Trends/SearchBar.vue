@@ -1,6 +1,6 @@
 <template>
         <div class="search-bar">
-            <div class="box">
+            <div class="search-box">
                 <div class="search-icon">
                     <Search />
                 </div>
@@ -48,7 +48,7 @@ export default {
         &:focus-within{
             border: $light-blue-border;
         }
-        .box{
+        .search-box{
             display: flex;
             justify-content: flex-start;
             align-items: center;

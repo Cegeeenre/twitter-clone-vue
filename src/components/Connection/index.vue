@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="connectionbox">
         <div class="container-connection">
             <header>
                 <div class="logo">
@@ -9,7 +9,7 @@
             <h1>Connection</h1>
             <form @submit.prevent="submitForm">
                 <div class="form">
-                    <div class="input-form" @click="focusInput">
+                    <div class="input-form" @click="focusInput($event)">
                         <div class="label">
                             <label for="email-input">E-mail</label>
                         </div>
@@ -17,10 +17,18 @@
                             <input type="text" id="email-input" v-model="email" @blur="blurInput">
                         </div>
                     </div>
-                    <input type="text" v-model="password">
+                    <div class="input-form" @click="focusInput($event)">
+                        <div class="label">
+                            <label for="password-input">Password</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" id="password-input" v-model="password" @blur="blurInput">
+                        </div>
+                    </div>
+                    <span>Forgot your password ?</span>
                 </div>
                 <div class="addTweet-buttons">
-                    <button class="addTweet-button" type="submit" @click="connection">Tweet</button>
+                    <button class="addTweet-button" type="submit" :class="{ disabled : !email && !password }" @click="connection">Connection</button>
                     <span>You do not have an account ? <span> Sign up</span></span>
                 </div>
             </form>
@@ -44,6 +52,7 @@ export default {
     },
     methods: {
         connection() {
+            // if (!this.email.trim() || !this.password.trim()) return
             this.axios
             .post('http://localhost:3000/login', {
                 email : this.email,
@@ -59,25 +68,31 @@ export default {
         },
         submitForm () {
         },
-        focusInput() {
-            this.$el.querySelector('.label').classList.add('active');
+        focusInput(event) {
+            event.target.querySelector('input').focus();
+            event.currentTarget.querySelector('.label').classList.add('active');
         },
         blurInput() {
-            this.$el.querySelector('.label').classList.remove('active');
+            this.$el.querySelectorAll('.input-form').forEach(el => {
+                if (!el.querySelector('input').value) {
+                    el.querySelector('.label').classList.remove('active');
+                }
+            });
         }
     }
 }
 </script>
 <style lang="scss">
     @import '@/assets/theme/colors.scss';
-    .container{
+    .connectionbox{
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background-color : $background-light-grey;
         .container-connection{
-            background-color: blueviolet;
-            width: 30%;
+            background-color: $color-white;
+            width: 23%;
             height: 50%;
             padding: 3rem;
             border-radius: 1rem;
@@ -96,24 +111,22 @@ export default {
             form {
                 width: 100%;
                 .form{
-                    background-color: aquamarine;
                     width: 100%;
-                    margin-bottom: 10rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     flex-direction: column;
                     
                     .input-form {
-                        background-color: burlywood;
+                        background-color: $color-light-grey;
                         width: calc(100% - 0.3rem);
                         height: 100%;
                         border-radius: 6px;
-                        border: 2px solid #d6dee2;
+                        border: 2px solid $color-light-grey;
                         margin: 1rem;
                         padding: 0.3rem;
+                        cursor : pointer;
                         .label{
-                            // get the label to the left at the middle
                             width: 100%;
                             height: 100%;
                             top : 50%;
@@ -125,6 +138,12 @@ export default {
                                 align-items: center;
                                 width: 100%;
                                 height: 100%;
+                                -webkit-touch-callout: none;
+                                -webkit-user-select: none;
+                                -khtml-user-select: none;
+                                -moz-user-select: none;
+                                -ms-user-select: none;
+                                user-select: none;
                             }
                             &.active{
                                 top: 0;
@@ -149,10 +168,14 @@ export default {
                         &:focus-within{
                             border : 2px solid $tweet-action-blue;
                         }
+                        & * {
+                            cursor: pointer;
+                        }
                     }
                 }
                 .addTweet-buttons{
                     width: 100%;
+                    margin-top: 5rem;
                     .addTweet-button{
                         width: 100%;
                         background-color: $tweet-action-blue;
@@ -168,6 +191,10 @@ export default {
                         transition: all 0.3s ease-in-out;
                         &:hover{
                             background-color: $tweet-action-blue-hover;
+                        }
+                        &.disabled{
+                            background-color: $color-grey;
+                            cursor: no-drop;
                         }
                     }
                 }
