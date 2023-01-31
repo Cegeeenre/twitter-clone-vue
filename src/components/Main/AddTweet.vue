@@ -144,22 +144,21 @@ export default {
                 align-items: center;
                 padding: 1rem 1rem 0 1rem;
                 .addTweet-button{
-                // use the color from another file
-                background-color: rgb(239 241 241);
-                border-radius: 10rem;
-                padding-left: 5rem;
-                padding-right: 5rem;
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-                color: white;
-                font-size: 1rem;
-                border-style: none;
-                cursor: pointer;
-                transition: all 0.3s ease-in-out;
-                &.active{
-                    background-color: #1a8be0;
+                    background-color: rgb(239 241 241);
+                    border-radius: 10rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    color: white;
+                    font-size: 1rem;
+                    border-style: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    &.active{
+                        background-color: #1a8be0;
+                    }
                 }
-            }
             }
         }
     }
