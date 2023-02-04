@@ -67,29 +67,31 @@ export default {
         },
         AddTweet() {
             if(this.tweet.length > 0) {
-                console.log(this.tweet)
-                this.axios
-                    .post('http://localhost:3000/tweets', 
-                    {
-                        text : this.tweet,
-                        autor : 'gerard',
-                        date : this.generateDateToday(),
+                fetch('/api/tweet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        autor: 'gerard',
+                        date: this.generateDateToday(),
                         hour : this.generateHourToday(),
                         minute : this.generateMinuteToday(),
-                    },
-                    {
-                        headers: {
-                            'Content-Type': 'application/json'
+                        message: this.tweet,
+                        stats : {
+                            views: this.randNumbers(),
+                            replies: this.randNumbers(),
+                            retweets: this.randNumbers(),
+                            likes: this.randNumbers()
                         }
                     })
-                    .then(response => {
-                        console.log(response)
-                        this.$emit('updateTweet')
-                        this.defaultTweet()
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
+                    
+                }).then(response => {
+                    console.log(response)
+                    this.$emit('updateTweet')
+                    this.defaultTweet()
+                })
+                
             }
         },
         defaultTweet() {

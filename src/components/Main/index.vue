@@ -41,20 +41,15 @@ export default {
     created() {
     },
     mounted () {
-        fetch("/api/tweets")
-            .then((response) => response.json())
-            .then((json) => {
-                this.tweets = json.tweets;
-            });
+        this.updateTweet()
     },
     methods: {
         updateTweet() {
-            this.axios
-            .get('http://localhost:3000/tweets')
-            .then(response => {
-                this.tweets = response.data
-                console.log(this.tweets)
-            })
+            fetch("/api/tweets")
+                .then((response) => response.json())
+                .then((json) => {
+                    this.tweets = json.tweets;
+                });
         }
     }
 }

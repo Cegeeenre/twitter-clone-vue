@@ -12,7 +12,8 @@ export function makeServer({ environment = "development" } = {}) {
             server.create("user", { name: "Bob" })
             server.create("user", { name: "Alice" })
 
-            server.create("tweet", { 
+            server.create("tweet", {
+                id : 1, 
                 autor : "Bob",
                 date : "2021-01-01",
                 hour : "12",
@@ -26,6 +27,7 @@ export function makeServer({ environment = "development" } = {}) {
                 }
             })
             server.create("tweet", { 
+                id : 2,
                 autor : "John",
                 date : "2022-11-21",
                 hour : "04",
@@ -41,11 +43,19 @@ export function makeServer({ environment = "development" } = {}) {
         },
         routes() {
             this.namespace = "api"
+            // USERS
             this.get("/users", (schema) => {
                 return schema.users.all()
             })
+
+            // TWEETS 
             this.get("/tweets", (schema) => {
                 return schema.tweets.all()
+            })
+            this.post("/tweet", (schema, request) => {
+                let attrs = JSON.parse(request.requestBody)
+                attrs.id = Math.floor(Math.random() * 10000)
+                return schema.tweets.create(attrs)
             })
         },
     })
