@@ -20,9 +20,6 @@
             <div class="feed-content-tweet" v-for="tweet in tweets" :key="tweet.id">
                 <Tweet :tweet="tweet" />
             </div>
-            <ul id="users">
-                <li v-for="user in users" v-bind:key="user.id">{{ user.name }}</li>
-            </ul>
         </div>
     </div>
 </template>
@@ -39,23 +36,15 @@ export default {
         return {
             active: 'foryou',
             tweets: [],
-            users: []
         }
     },
     created() {
     },
     mounted () {
-        // this.axios
-        //     .get('http://localhost:3000/tweets')
-        //     .then(response => {
-        //         this.tweets = response.data
-        //         console.log(this.tweets)
-        //     })
-
-        fetch("/api/users")
+        fetch("/api/tweets")
             .then((response) => response.json())
             .then((json) => {
-                this.users = json.users;
+                this.tweets = json.tweets;
             });
     },
     methods: {
