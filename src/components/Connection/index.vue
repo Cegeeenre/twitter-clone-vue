@@ -29,7 +29,6 @@
                 </div>
                 <div class="addTweet-buttons">
                     <button class="addTweet-button" type="submit" :class="{ disabled : !email && !password }" @click="connection">Connection</button>
-                    <span>You do not have an account ? <span> Sign up</span></span>
                 </div>
             </form>
         </div>
@@ -53,17 +52,19 @@ export default {
     methods: {
         connection() {
             // if (!this.email.trim() || !this.password.trim()) return
-            this.axios
-            .post('http://localhost:3000/login', {
-                email : this.email,
-                password : this.password
+            fetch("/api/connection", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: this.email,
+                    password: this.password
+                })
             })
             .then(response => {
                 this.user = response.data
                 router.push({ name: 'Home' })
-            })
-            .catch(error => {
-                console.log(error)
             })
         },
         submitForm () {

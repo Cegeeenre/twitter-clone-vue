@@ -9,9 +9,14 @@ export function makeServer({ environment = "development" } = {}) {
             tweet: Model,
         },
         seeds(server) {
-            server.create("user", { name: "Bob" })
-            server.create("user", { name: "Alice" })
-
+            server.create("user", { 
+                id : 1,
+                name : "john",
+                fname : "John",
+                email : "john@gmail.com",
+                password : "hello",
+                description : "I'm John, I'm 20 years old and I'm a student at the University of Paris",
+            })
             server.create("tweet", {
                 id : 1, 
                 autor : "Bob",
@@ -46,6 +51,20 @@ export function makeServer({ environment = "development" } = {}) {
             // USERS
             this.get("/users", (schema) => {
                 return schema.users.all()
+            })
+            // connect a user, virify if the user exist and if the password is correct
+            this.post("/connection", (schema, request) => {
+                let attrs = JSON.parse(request.requestBody)
+                let user = schema.users.findBy({ email: attrs.email })
+                if (user) {
+                    if (user.password === attrs.password) {
+                        return true
+                    } else {
+                        return { error: "Wrong password" }
+                    }
+                } else {
+                    return { error: "User not found" }
+                }
             })
 
             // TWEETS 

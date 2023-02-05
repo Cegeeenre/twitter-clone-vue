@@ -31,7 +31,7 @@ export default {
             default: 'Trends for you'
         },
         nbTweets: {
-            type: Number,
+            type: String,
             default: 1527
         }
     }
