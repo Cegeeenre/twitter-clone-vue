@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         connection() {
-            // if (!this.email.trim() || !this.password.trim()) return
+            if (!this.email.trim() || !this.password.trim()) return
             fetch("/api/connection", {
                 method: "POST",
                 headers: {
@@ -62,9 +62,14 @@ export default {
                     password: this.password
                 })
             })
-            .then(response => {
-                this.user = response.data
-                router.push({ name: 'Home' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error)
+                } else {
+                    this.user = data.data
+                    router.push({ name: 'Home' })
+                }
             })
         },
         submitForm () {

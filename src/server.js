@@ -58,7 +58,7 @@ export function makeServer({ environment = "development" } = {}) {
                 let user = schema.users.findBy({ email: attrs.email })
                 if (user) {
                     if (user.password === attrs.password) {
-                        return true
+                        return { data: user }
                     } else {
                         return { error: "Wrong password" }
                     }
